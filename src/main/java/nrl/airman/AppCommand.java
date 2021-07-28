@@ -124,7 +124,7 @@ public class AppCommand extends AbstractShellCommand {
     	HostService service = get(HostService.class);
     	List<Host> hosts = newArrayList(service.getHosts());
     	
-    	print("host table size: " + hosts.size();
+    	print("host table size: " + hosts.size());
     }
     
     private void wipeOutIntents() {
