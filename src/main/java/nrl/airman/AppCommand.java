@@ -19,15 +19,11 @@ import org.apache.karaf.shell.api.action.Command;
 import org.apache.karaf.shell.api.action.lifecycle.Service;
 import org.onosproject.cli.AbstractShellCommand;
 
-import org.apache.karaf.shell.commands.Command;
-import org.onosproject.cli.AbstractShellCommand;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import org.apache.karaf.shell.commands.Argument;
-import org.apache.karaf.shell.commands.Command;
 import org.apache.karaf.shell.commands.Option;
 
 
