@@ -16,6 +16,8 @@
 package nrl.airman;
 
 import org.apache.karaf.shell.api.action.Command;
+import org.apache.karaf.shell.api.action.Argument;
+
 import org.apache.karaf.shell.api.action.lifecycle.Service;
 import org.onosproject.cli.AbstractShellCommand;
 
@@ -30,13 +32,16 @@ public class AppCommand extends AbstractShellCommand {
 
 	public static final String CMD_CANCEL = "cancel";
 	public static final String CMD_HELP = "help";
+	
+	@Argument(name = "cmd", description = "command")
+    String cmd = null;
 
 
 
     @Override
     protected void doExecute() {
       
-        print("Hello %s", "World");
+        print("Hello %s", "World " + command);
     }
 
 }
