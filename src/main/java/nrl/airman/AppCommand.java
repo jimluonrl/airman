@@ -106,7 +106,7 @@ public class AppCommand extends AbstractShellCommand {
     			break;
       		}
       		case CMD_COUNT_HOST_TABLE: {
-				countHostaTable();
+				countHostTable();
 
     			break;
       		}
