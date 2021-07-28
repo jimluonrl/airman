@@ -32,6 +32,7 @@ import com.google.common.collect.Sets;
 import org.onlab.util.Tools;
 import org.onosproject.net.Device;
 import org.onosproject.net.Host;
+import org.onosproject.net.host.HostService;
 import org.onosproject.net.Link;
 import org.onosproject.net.config.NetworkConfigService;
 import org.onosproject.net.device.DeviceAdminService;
@@ -69,6 +70,8 @@ public class AppCommand extends AbstractShellCommand {
 	public static final String CMD_CLEAR_HOST_TABLE = "clear_host_table";
 	public static final String CMD_CLEAR_FLOW_TABLE = "clear_flow_table";
 	public static final String CMD_CLEAR_SWITCH_TABLE = "clear_switch_table";
+	
+	public static final String CMD_COUNT_HOST_TABLE = "count_host_table";
 
 
 	public static final String CMD_CANCEL = "cancel";
@@ -102,6 +105,11 @@ public class AppCommand extends AbstractShellCommand {
 
     			break;
       		}
+      		case CMD_COUNT_HOST_TABLE: {
+				countHostaTable();
+
+    			break;
+      		}
       			case CMD_HELP: {
         		break;
 			}
@@ -110,6 +118,13 @@ public class AppCommand extends AbstractShellCommand {
         		break;
       		}
     	}
+    }
+    
+    private void countHostTable() {
+    	HostService service = get(HostService.class);
+    	List<Host> hosts = newArrayList(service.getHosts());
+    	
+    	print("host table size: " + hosts.size();
     }
     
     private void wipeOutIntents() {
