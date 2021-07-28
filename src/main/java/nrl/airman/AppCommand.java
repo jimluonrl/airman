@@ -59,6 +59,8 @@ import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
 import static org.onosproject.net.intent.IntentState.WITHDRAWN;
+import static com.google.common.collect.Lists.newArrayList;
+
 
 /**
  * Sample Apache Karaf CLI command.
