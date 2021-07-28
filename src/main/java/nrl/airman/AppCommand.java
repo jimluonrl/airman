@@ -19,14 +19,6 @@ import org.apache.karaf.shell.api.action.Command;
 import org.apache.karaf.shell.api.action.lifecycle.Service;
 import org.onosproject.cli.AbstractShellCommand;
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import org.apache.karaf.shell.commands.Argument;
-
-
 /**
  * Sample Apache Karaf CLI command.
  */
@@ -39,15 +31,6 @@ public class AppCommand extends AbstractShellCommand {
 	public static final String CMD_CANCEL = "cancel";
 	public static final String CMD_HELP = "help";
 
-
-	// Arguments/Options
-	@Argument(index = 0, name = "command", required = true,
-		description = "name of the command")
-	private String commandStr = null;
-
-	@Argument(index = 1, name = "param...", required = false, multiValued = true,
-		description = "param(s) required by commands")
-	private List<String> paramList = new ArrayList<>();
 
 
     @Override
