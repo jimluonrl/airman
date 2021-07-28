@@ -139,23 +139,24 @@ public class AppCommand extends AbstractShellCommand {
 
 		switch (commandStr) {
 
-      	case CMD_FLOOD_FLOW_TABLE: {
-			print ("attack flood flow table: " + attackFloodFlowTable());
-        	break;
-      	}
+		  	case CMD_FLOOD_FLOW_TABLE: {
+				print ("attack flood flow table: " + attackFloodFlowTable());
+		    	break;
+		  	}
 	
-  	    case CMD_HELP: {
-    	    break;
-    	}
-    	
-      	default: {
-        	print("Unknown command %s", commandStr);
-        	break;
+	  	    case CMD_HELP: {
+			    break;
+			}
+			
+		  	default: {
+		    	print("Unknown command %s", commandStr);
+		    	break;
+		  	}
       	}
     }
     
     
-    	private CountDownLatch latch;
+    private CountDownLatch latch;
 	private String attackFloodFlowTable() {
 	    int MAX_OUT_PORT = 254;
 		if (paramList.size() != 2) {
@@ -165,11 +166,11 @@ public class AppCommand extends AbstractShellCommand {
 		int flowsPerDevice = Integer.parseInt(paramList.get(0));
 		int num = Integer.parseInt(paramList.get(1));
 
-		 FlowRuleService flowService = get(FlowRuleService.class);
+		FlowRuleService flowService = get(FlowRuleService.class);
         DeviceService deviceService = get(DeviceService.class);
         CoreService coreService = get(CoreService.class);
 
-       ApplicationId appId = coreService.registerApplication("onos.test.flow.installer");
+       	ApplicationId appId = coreService.registerApplication("onos.test.flow.installer");
 
        
         ArrayList<Long> results = Lists.newArrayList();
