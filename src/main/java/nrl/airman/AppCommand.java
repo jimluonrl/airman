@@ -17,18 +17,16 @@ package nrl.airman;
 
 import org.apache.karaf.shell.api.action.Command;
 import org.apache.karaf.shell.api.action.Argument;
-
+import org.apache.karaf.shell.commands.Option;
 import org.apache.karaf.shell.api.action.lifecycle.Service;
+
 import org.onosproject.cli.AbstractShellCommand;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import org.apache.karaf.shell.commands.Argument;
-import org.apache.karaf.shell.commands.Option;
 import org.onosproject.cli.AbstractChoicesCompleter;
-import org.onosproject.cli.AbstractShellCommand;
 import org.slf4j.helpers.MessageFormatter;
 import com.google.common.collect.Sets;
 import org.onlab.util.Tools;
