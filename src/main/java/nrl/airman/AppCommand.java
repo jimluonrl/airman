@@ -41,7 +41,7 @@ public class AppCommand extends AbstractShellCommand {
     @Override
     protected void doExecute() {
       
-        print("Hello %s", "World " + command);
+        print("Hello %s", "World " + cmd);
     }
 
 }
