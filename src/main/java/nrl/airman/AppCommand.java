@@ -106,7 +106,7 @@ public class AppCommand extends AbstractShellCommand {
         		break;
 			}
       		default: {
-        		print("Unknown command %s", commandStr);
+        		print("Unknown command %s", cmd);
         		break;
       		}
     	}
