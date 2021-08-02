@@ -67,7 +67,7 @@ import static com.google.common.collect.Lists.newArrayList;
  */
 @Service
 @Command(scope = "onos", name = "airman",
-         description = "Sample Apache Karaf CLI command")
+         description = "Airman utility")
 public class AppCommand extends AbstractShellCommand {
 	public static final String CMD_CLEAR_HOST_TABLE = "clear_host_table";
 	public static final String CMD_CLEAR_FLOW_TABLE = "clear_flow_table";
@@ -80,15 +80,13 @@ public class AppCommand extends AbstractShellCommand {
 	public static final String CMD_HELP = "help";
 
 
-	@Argument(name = "cmd", description = "command")
+	@Argument(name = "cmd", description = "command: {clear_host_table}, {clear_flow_table}, {clear_switch_table}, {count_host_table}" )
     String cmd = null;
 
 
     @Override
     protected void doExecute() {
       
-        print("Hello %s", "World " + cmd);
-        
     	cmd = Optional.ofNullable(cmd).orElse("Error");
 
 		switch (cmd) {
