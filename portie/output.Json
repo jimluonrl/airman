@@ -1,0 +1,52 @@
+{
+  "flows": [
+    {
+      "appId": "nrl.airman.app",
+      "priority": 100,
+      "isPermanent": "false",
+      "timeout": 10,
+      "deviceId": "of:0000000000008091",
+      "treatment": {},
+      "selector": {
+        "criteria": [
+          {
+            "ethType": "0x8cc",
+            "type": "ETH_TYPE"
+          }
+        ]
+      }
+    },
+    {
+      "appId": "nrl.airman.app",
+      "priority": 100,
+      "isPermanent": "false",
+      "timeout": 10,
+      "deviceId": "of:0000000000008091",
+      "treatment": {},
+      "selector": {
+        "criteria": [
+          {
+            "ethType": "0x806",
+            "type": "ETH_TYPE"
+          }
+        ]
+      }
+    },
+    {
+      "appId": "nrl.airman.app",
+      "priority": 100,
+      "isPermanent": "false",
+      "timeout": 10,
+      "deviceId": "of:0000000000008091",
+      "treatment": {},
+      "selector": {
+        "criteria": [
+          {
+            "ethType": "0x800",
+            "type": "ETH_TYPE"
+          }
+        ]
+      }
+    }
+  ]
+}

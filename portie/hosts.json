@@ -1,0 +1,280 @@
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:09/None",
+    "ipAddresses": [
+        "10.0.0.9"
+    ],
+    "mac": "00:00:00:00:00:09",
+    "locations": [
+        {
+            "elementId": "of:000000000000000c",
+            "port": "6"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:11/None",
+    "ipAddresses": [
+        "10.0.0.17"
+    ],
+    "mac": "00:00:00:00:00:11",
+    "locations": [
+        {
+            "elementId": "of:000000000000000e",
+            "port": "4"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:07/None",
+    "ipAddresses": [
+        "10.0.0.7"
+    ],
+    "mac": "00:00:00:00:00:07",
+    "locations": [
+        {
+            "elementId": "of:000000000000000c",
+            "port": "4"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:05/None",
+    "ipAddresses": [
+        "10.0.0.5"
+    ],
+    "mac": "00:00:00:00:00:05",
+    "locations": [
+        {
+            "elementId": "of:000000000000000b",
+            "port": "7"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:0A/None",
+    "ipAddresses": [
+        "10.0.0.10"
+    ],
+    "mac": "00:00:00:00:00:0A",
+    "locations": [
+        {
+            "elementId": "of:000000000000000c",
+            "port": "7"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:14/None",
+    "ipAddresses": [
+        "10.0.0.20"
+    ],
+    "mac": "00:00:00:00:00:14",
+    "locations": [
+        {
+            "elementId": "of:000000000000000e",
+            "port": "7"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:10/None",
+    "ipAddresses": [
+        "10.0.0.16"
+    ],
+    "mac": "00:00:00:00:00:10",
+    "locations": [
+        {
+            "elementId": "of:000000000000000e",
+            "port": "3"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:04/None",
+    "ipAddresses": [
+        "10.0.0.4"
+    ],
+    "mac": "00:00:00:00:00:04",
+    "locations": [
+        {
+            "elementId": "of:000000000000000b",
+            "port": "6"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:0C/None",
+    "ipAddresses": [
+        "10.0.0.12"
+    ],
+    "mac": "00:00:00:00:00:0C",
+    "locations": [
+        {
+            "elementId": "of:000000000000000d",
+            "port": "4"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:08/None",
+    "ipAddresses": [
+        "10.0.0.8"
+    ],
+    "mac": "00:00:00:00:00:08",
+    "locations": [
+        {
+            "elementId": "of:000000000000000c",
+            "port": "5"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:13/None",
+    "ipAddresses": [
+        "10.0.0.19"
+    ],
+    "mac": "00:00:00:00:00:13",
+    "locations": [
+        {
+            "elementId": "of:000000000000000e",
+            "port": "6"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:0E/None",
+    "ipAddresses": [
+        "10.0.0.14"
+    ],
+    "mac": "00:00:00:00:00:0E",
+    "locations": [
+        {
+            "elementId": "of:000000000000000d",
+            "port": "6"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:02/None",
+    "ipAddresses": [
+        "10.0.0.2"
+    ],
+    "mac": "00:00:00:00:00:02",
+    "locations": [
+        {
+            "elementId": "of:000000000000000b",
+            "port": "4"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:01/None",
+    "ipAddresses": [
+        "10.0.0.1"
+    ],
+    "mac": "00:00:00:00:00:01",
+    "locations": [
+        {
+            "elementId": "of:000000000000000b",
+            "port": "3"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:0B/None",
+    "ipAddresses": [
+        "10.0.0.11"
+    ],
+    "mac": "00:00:00:00:00:0B",
+    "locations": [
+        {
+            "elementId": "of:000000000000000d",
+            "port": "3"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:06/None",
+    "ipAddresses": [
+        "10.0.0.6"
+    ],
+    "mac": "00:00:00:00:00:06",
+    "locations": [
+        {
+            "elementId": "of:000000000000000c",
+            "port": "3"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:03/None",
+    "ipAddresses": [
+        "10.0.0.3"
+    ],
+    "mac": "00:00:00:00:00:03",
+    "locations": [
+        {
+            "elementId": "of:000000000000000b",
+            "port": "5"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:0F/None",
+    "ipAddresses": [
+        "10.0.0.15"
+    ],
+    "mac": "00:00:00:00:00:0F",
+    "locations": [
+        {
+            "elementId": "of:000000000000000d",
+            "port": "7"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:12/None",
+    "ipAddresses": [
+        "10.0.0.18"
+    ],
+    "mac": "00:00:00:00:00:12",
+    "locations": [
+        {
+            "elementId": "of:000000000000000e",
+            "port": "5"
+        }
+    ]
+}
+{
+    "vlan": "None",
+    "id": "00:00:00:00:00:0D/None",
+    "ipAddresses": [
+        "10.0.0.13"
+    ],
+    "mac": "00:00:00:00:00:0D",
+    "locations": [
+        {
+            "elementId": "of:000000000000000d",
+            "port": "5"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "dId": "of:0000000000008091",
+    "priority": 100,
+    "ethType": "0x8cc",
+    "timeout": 10
+  },
+  {
+    "dId": "of:0000000000008091",
+    "priority": 100,
+    "ethType": "0x806",
+    "timeout": 10
+  },
+  {
+    "dId": "of:0000000000008091",
+    "priority": 100,
+    "ethType": "0x800",
+    "timeout": 10
+  }
+]
