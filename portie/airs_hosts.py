@@ -8,7 +8,7 @@ import csv
 
 from airs_config import restUser,restPassword
 
-def get_request(url,request):
+def get_request(url,request,restUser,restPassword):
     '''
     Params: basic url for RestAPI and get request 
     Return a JSON object based on ONOS RestAPI
@@ -21,7 +21,7 @@ def get_request(url,request):
         print ('{} : {}'.format (response.json()['code'], response.json()['message']))
         return -1
 
-def delete_request(url,request):
+def delete_request(url,request,restUser,restPassword):
     '''
     Params: basic url for RestAPI and delete request
     Return HTTP status code
@@ -29,14 +29,14 @@ def delete_request(url,request):
     response = requests.delete(url + request , auth=(restUser, restPassword))
     return response
  
-def get_hosts(base_url):
+def get_hosts(base_url,restUser,restPassword):
     '''
     ONOS REST API: GET /hosts
     Return: a list of dict containing host id, ip address, mac address
     '''
     
     result = []
-    hosts = get_request(base_url, 'hosts')
+    hosts = get_request(base_url, 'hosts',restUser,restPassword)
     if hosts == -1:
         return
     if len(hosts) == 0:
@@ -53,12 +53,12 @@ def get_hosts(base_url):
         result.append(record)
     return result 
 
-def get_hostTblSize(base_url):
+def get_hostTblSize(base_url,restUser,restPassword):
     '''
     Params: base_url
     Return: host table size
     '''
-    return len(get_hosts(base_url))
+    return len(get_hosts(base_url,restUser,restPassword))
 
 
 def clear_hosts(base_url):
@@ -68,7 +68,7 @@ def clear_hosts(base_url):
     and base_url
     Return: success or false
     '''
-    hosts = get_hosts(base_url)
+    hosts = get_hosts(base_url,restUser,restPassword)
     if len(hosts) <=0:
         return
     else:
@@ -76,7 +76,7 @@ def clear_hosts(base_url):
             host = hosts[i]
             request = "hosts/" + host['mac'] + "/" + host['vlan']
             print(request)
-            response = delete_request(base_url, request)       
+            response = delete_request(base_url, request,restUser,restPassword)       
 
 def get_hostInJson(hostList, ofile):
     '''
@@ -96,7 +96,8 @@ def print_hosts(hostList):
 if __name__ == '__main__':   
 
     base_url= 'http://172.17.0.5:8181/onos/v1/'
-
+	restUser='karaf'
+	restPassword='karaf'
     # Test fucntion call 
 
     hostList = get_hosts(base_url)

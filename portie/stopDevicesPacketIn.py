@@ -51,7 +51,7 @@ def stopPacketIn(argv):
 
     if not isRemove:
       makeDropRules.buildInputFile(base_url, ethTypes, priority, timeout, ifile)
-      makeDropRules.py2Json(makeDropRules.buildDropFlows(ifile), ofile)
+      makeDropRules.py2Json(makeDropRules.buildDropFlows(ifile), ofile, nrlAppId)
       airs_flows.post_flows(base_url, ofile, restUser, restPassword)
     else:
       airs_flows.clear_flowsByAppId(base_url, nrlAppId, restUser, restPassword)

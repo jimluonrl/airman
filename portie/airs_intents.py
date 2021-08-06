@@ -8,7 +8,7 @@ import csv
 
 from airs_config import restUser,restPassword
 
-def get_request(url,request):
+def get_request(url,request,restUser,restPassword):
     '''
     Params: basic url for RestAPI and get request 
     Return a JSON object based on ONOS RestAPI
@@ -21,15 +21,15 @@ def get_request(url,request):
         print ('{} : {}'.format (response.json()['code'], response.json()['message']))
         return -1
 
-def delete_request(url,request):
+def delete_request(url,request,restUser,restPassword):
     '''
     Params: basic url for RestAPI and delete request
     Return HTTP status code
     '''
-    response = requests.delete(url + request , auth=('onos', 'rocks'))
+    response = requests.delete(url + request , auth=(restUser, restPassword))
     return response
 
-def post_request(url, data):
+def post_request(url, data,restUser,restPassword):
     '''
     Params: base url for ONOS REST API and post request
     Return: HTTP status code
@@ -37,14 +37,14 @@ def post_request(url, data):
     response = requests.post(url, data=data, headers={"Content-Type": "application/json"}, auth=(restUser, restPassword))
     return response
  
-def get_intents(base_url):
+def get_intents(base_url,restUser,restPassword):
     '''
     ONOS REST API: GET /intents
     Return: a list containing all the intents 
     '''
     
     result = []
-    intents = get_request(base_url, 'intents')
+    intents = get_request(base_url, 'intents',restUser,restPassword)
     if intents == -1:
         return
     if len(intents) == 0:
@@ -62,13 +62,13 @@ def get_intents(base_url):
         result.append(record)
     return result
 
-def get_intentKeys(base_url):
+def get_intentKeys(base_url,restUser,restPassword):
     '''
     Params: base url for RestAPI 
     Return: a list containing installed intent's key and appId
     '''
     result = []
-    intents = get_request(base_url, 'intents')
+    intents = get_request(base_url, 'intents',restUser,restPassword)
     if intents == -1:
         return
     if len(intents) == 0:
@@ -82,16 +82,16 @@ def get_intentKeys(base_url):
         result.append(record)
     return result 
 
-def get_intentFlows(base_url, appId, key):
+def get_intentFlows(base_url, appId, key,restUser,restPassword):
     '''
     ONOS REST API GET /intents/relatedflows/{appId}/{key}
     Params: base url for Rest API, intent key and appId
     Return: all flow entries of the specified intent
     '''
     request = 'intents/relatedflows/' + appId + '/' + key
-    return get_request(base_url, request) 
+    return get_request(base_url, request,restUser,restPassword) 
 
-def post_intent(base_url, aMac, aVlan, bMac, bVlan):
+def post_intent(base_url, aMac, aVlan, bMac, bVlan,restUser,restPassword):
     '''
     ONOS REST API: POST /intents
     Params: base url to REST API, hostA mac, hostA vlan, hostB mac, hostB vlan
@@ -110,11 +110,11 @@ def post_intent(base_url, aMac, aVlan, bMac, bVlan):
     #data = json.dumps(record, indent=2)
     #print(data) 
     url = base_url + "intents" 
-    response = post_request(url, data=json.dumps(record))
+    response = post_request(url, data=json.dumps(record),restUser,restPassword)
     #print(url)
     print(response)
 
-def delete_intents(base_url, appId, key):
+def delete_intents(base_url, appId, key,restUser,restPassword):
     '''
     ONOs REST API: DELETE /intents/{appId}/{key}
     Params: base url to REST API, appId and key of the intent to be reomved
@@ -122,18 +122,9 @@ def delete_intents(base_url, appId, key):
     '''
     request = 'intents/' + appId + '/' + key
     print(request)
-    return delete_request(base_url, request)
+    return delete_request(base_url, request,restUser,restPassword)
  
 
 if __name__ == '__main__':   
 
-    base_url= 'http://172.17.0.5:8181/onos/v1/'
-
-    # Test fucntion call 
-
-    intentList = get_intents(base_url)
-    post_intent(base_url, "00:00:00:00:00:01", "None", "00:00:00:00:00:10", "None")
-    keys = get_intentKeys(base_url)
-    #flows = get_intentFlows(base_url, 'org.onosproject.net.intent', '0x7')
-    delete_intents(base_url, "org.onosproject.net.intent", "0x1")
-    
+   

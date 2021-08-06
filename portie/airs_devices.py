@@ -5,9 +5,9 @@ from requests.auth import HTTPBasicAuth
 import json
 import sys
 
-from airs_config import restUser,restPassword
 
-def get_request(url,request):
+
+def get_request(url,request,restUser,restPassword):
     '''
     Params: bas url for ONOS REST API and a get request 
     Return: a JSON object 
@@ -19,7 +19,7 @@ def get_request(url,request):
         print ('{} : {}'.format (response.json()['code'], response.json()['message']))
         return -1
 
-def post_request(url, data):
+def post_request(url, data,restUser,restPassword):
     '''
     Params: base url for ONOS REST API and post request
     Return: HTTP status code
@@ -27,7 +27,7 @@ def post_request(url, data):
     response = requests.post(url, data=data, headers={"Content-Type": "application/json"}, auth=(restUser, restPassword))
     return response
 
-def delete_request(url,request):
+def delete_request(url,request,restUser,restPassword):
     '''
     Params: base url for ONOS REST API and a delete request
     Return: HTTP status code
@@ -35,14 +35,14 @@ def delete_request(url,request):
     response = requests.delete(url + request , auth=(restUser, restPassword))
     return response
     
-def get_devices(base_url):
+def get_devices(base_url,restUser,restPassword):
     '''
     ONOS REST API: GET /devices
     Param: base url for the end point
     Return: a list of all discovered infrastructure devices 
     '''
     result = []
-    devices = get_request(base_url, 'devices')
+    devices = get_request(base_url, 'devices',restUser,restPassword)
     if devices == -1:
         return
     if len(devices) == 0:
@@ -59,31 +59,31 @@ def get_devices(base_url):
     result.sort(key=lambda record: record['id'])
     return result 
 
-def get_deviceIds(base_url):
+def get_deviceIds(base_url,restUser,restPassword):
     '''
     Param: base url for the end point 
     Return: a list of device id
     '''
     result = []
-    devices = get_devices(base_url)
+    devices = get_devices(base_url,restUser,restPassword)
     if len(devices) <= 0:
         return result 
     return [device['id'] for device in devices]   
 
-def get_allDevicePorts(base_url):
+def get_allDevicePorts(base_url,restUser,restPassword):
     '''
     ONOS REST API: GET /devices/{id}/ports
     Params: base url for the end point
     Return: a list of devices and their available ports
     '''
     result = []
-    dIds = get_deviceIds(base_url)
+    dIds = get_deviceIds(base_url,restUser,restPassword)
     if len(dIds) <= 0:  
         return result 
     for i in range(len(dIds)):
         dId = dIds[i]
         request = "devices/" + dId + "/ports"
-        device = get_request(base_url, request)
+        device = get_request(base_url, request,restUser,restPassword)
         portnums = [port['port'] for port in device['ports']] 
         record = {
         'id': device['id'],
@@ -92,13 +92,13 @@ def get_allDevicePorts(base_url):
         result.append(record)
     return result 
 
-def get_devicePorts(base_url, dId):
+def get_devicePorts(base_url, dId,restUser,restPassword):
     '''
     Params: a list of infrastructure device and a device id 
     Return a list of ports specified by the input device id
     '''
     result = []
-    pList = get_allDevicePorts(base_url)
+    pList = get_allDevicePorts(base_url,restUser,restPassword)
     if len(pList) <= 0:
         return result
     for i in range(len(pList)):
@@ -107,14 +107,14 @@ def get_devicePorts(base_url, dId):
             return record['ports'] 
     return result  
 
-def get_deviceTblSize(base_url):
+def get_deviceTblSize(base_url,restUser,restPassword):
     '''
     Params: base url for ONOS REST API
     Return: table size
     '''
-    return (len(get_devices(base_url))) 
+    return (len(get_devices(base_url,restUser,restPassword))) 
 
-def set_port(base_url, dId, status, pId):
+def set_port(base_url, dId, status, pId,restUser,restPassword):
     '''
     ONOS REST API: POST /devices/{id}/portstate/{port_id}
     Param: device id, port status {true,false}, device's port 
@@ -130,21 +130,21 @@ def set_port(base_url, dId, status, pId):
             "enabled":false
             }'''
     url = base_url + "devices/" + dId + "/portstate/" + pId  
-    response = post_request(url, data)
+    response = post_request(url, data,restUser,restPassword)
 
-def configDevicePorts(status, dId):
+def configDevicePorts(status, dId,restUser,restPassword):
     '''
     Params: status to enable or disable all poarts on specified device ID
     '''
-    ports = get_devicePorts(base_url,dId) 
+    ports = get_devicePorts(base_url,dId,restUser,restPassword) 
     if len(ports) <= 0:
         return 
     for i in range(len(ports)):
         if ports[i] != 'local':
-            set_port(base_url, dId, status, i)
+            set_port(base_url, dId, status, i,restUser,restPassword)
 
 
-def delete_device(base_url, dId):
+def delete_device(base_url, dId,restUser,restPassword):
     '''
     ONOs REST API: DELETE /devices/{id}
     Params: base url for the end point and a device id 
@@ -156,19 +156,19 @@ def delete_device(base_url, dId):
     # if device were to be removed, critical hosts must migrate and ports disabled
     ''' 
     request = "devices/" + dId
-    delete_request(base_url, request)
+    delete_request(base_url, request,restUser,restPassword)
 
-def clear_devices(base_url):
+def clear_devices(base_url,restUser,restPassword):
     '''
     Params: base url to ONOS REST API
     Return: success or false
     '''
-    dIds = get_deviceIds(base_url)
+    dIds = get_deviceIds(base_url,restUser,restPassword)
     if len(dIds) <= 0:
         return
     for i in range(len(dIds)):
         print(dIds[i])
-        delete_device(base_url, dIds[i])
+        delete_device(base_url, dIds[i],restUser,restPassword)
      
 if __name__ == '__main__':
 

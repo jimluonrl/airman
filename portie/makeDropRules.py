@@ -4,7 +4,6 @@ import json
 import sys
 import airs_devices 
 
-from airs_config import restUser, restPassword, nrlAppId
 
 def buildInputFile(base_url, ethTypes, priority, timeout, ifile):
     '''
@@ -26,7 +25,7 @@ def buildInputFile(base_url, ethTypes, priority, timeout, ifile):
             lst.append(record)
     py2Json(lst, ifile) 
     
-def buildDropRecord(dId, priority, ethType, timeout):
+def buildDropRecord(dId, priority, ethType, timeout,nrlAppId):
     '''
     This method builds one drop flow at the time
     '''
