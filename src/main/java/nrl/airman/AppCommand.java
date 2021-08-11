@@ -167,6 +167,7 @@ public class AppCommand extends AbstractShellCommand {
         DeviceAdminService deviceAdminService = get(DeviceAdminService.class);
         for (Device device : deviceAdminService.getDevices()) {
             flowRuleService.purgeFlowRules(device.id());
+            print("Purged device...");
         }
     }
 
@@ -183,10 +184,16 @@ public class AppCommand extends AbstractShellCommand {
     private void wipeOutHosts() {
         print("Wiping hosts");
         HostAdminService hostAdminService = get(HostAdminService.class);
+        int i = 0;
         while (hostAdminService.getHostCount() > 0) {
             try {
                 for (Host host : hostAdminService.getHosts()) {
                     hostAdminService.removeHost(host.id());
+                    i += 1
+                    if (i == 1000) {
+                    	print("1000 hosts removed...");
+                    	i = 0;
+                    }
                 }
             } catch (Exception e) {
                 log.info("Unable to wipe-out hosts", e);
